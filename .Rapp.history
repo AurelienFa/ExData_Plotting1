@@ -1,0 +1,381 @@
+submit()
+mad_libs(place = "Munich", adjective = "dontknow", noun = "truc")
+submit()
+"I"%p%"love"%"R"
+"I"%p%"love"%p%"R"
+"I" %p% "love" %p% "R"
+"I" %p% "love" %p% "R!"
+x <- list(a = 1:5, b = rnorm(10))
+lapply(x, mean)
+x <. 1:4
+x <- 1:4
+lapply(x, runif)
+lapply(x, runif,  min = 0, max = 10)
+x <- list(a = matrix(1:4, 2,2), b = matrix(1:6,3,2))
+x
+lapply(x, function(elt) elt[,1])
+str(apply)
+x <- matrix(rnorm(200), 20 , 10)
+x
+apply(x, 2, mean)
+apply(x, 1, mean)
+apply(x, 1 sum)
+apply(x, 1 ,sum)
+apply(x, 1, quantile, probs = c(0.25, 0.75))
+mapply(rep, 1:4, 4:1)
+noise(5,1,2)
+x <- c(rnorm(10), runif(10), rnorm(10,1))
+f <- gl(3,10)
+f
+tapply(x,f,mean)
+tapply(x,f,mean, simplify = FALSE)
+tapply(x,f,mean, range)
+tapply(x,f, range)
+split(x,f)
+lapply(split(x,f), mean)
+library(datasets)
+head(airquality)
+s <- split(airquality, airquality$Month)
+lapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")]))
+sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")]))
+sapply(s, function(x) colMeans(x[, c("Ozone", "Solar.R", "Wind")], na.rm = TRUE))
+x <- rnorm(10)
+f1 <- gl(2,5)
+f2 <- gl(5,2)
+f1
+f2
+interaction(f1, f2)
+str(split(x, list(f1, f2)))
+str(split(x, list(f1, f2), drop = TRUE))
+mean(x)
+clear()
+mean(x)
+traceback()
+lm(y-x)
+traceback()
+debug(lm)
+lm(y-x)
+n
+library(swirl)
+swirl
+swirl()
+head(flags, 6)
+head(flags)
+dim(flags)
+class(flags)
+cls_list <- lapply(flags, class)
+cls_list
+class(cls_list)
+as.character(cls_list)
+cls_vect <- sapply(flags, class)
+class(cls_vect)
+sum(flags$orange)
+flag_colors <- flags[, 11:17]
+head(flag_colors)
+lapply(flag_color, sum)
+lapply(flag_colors, sum)
+sapply(flag_colors, sum)
+sapply(flag_colors, mean)
+flag_shapes <- flags[, 19:23]
+lapply(flag_shapes, range)
+sapply(flag_shapes, range)
+shape_mat <- sapply(flag_shapes, range)
+shape_mat
+class(shape_mat)
+unique(c(3,4,5,5,5,6,6))
+unique_vals <- lapply(flags, unique)
+unique_vals
+lapply(unique_vals, length)
+sapply(unique_vals, length)
+sapply(flags, unique)
+lapply(unique_vals, function(elem) elem[2])
+sapply(flags, unique)
+vapply(flags, unique, numeric(1))
+ok()
+sapply(flags, class)
+vapply(flags, class, character(1))
+?tapply
+table(flags$landmass)
+table(flags$animate)
+tapply(flags$animate, flags$landmass, mean)
+tapply(flags$population, flags$red, summary)
+tapply(flags$population, flags$landmass, summary)
+makeVector <- function(x = numeric()) {#
+        m <- NULL#
+        set <- function(y) {#
+                x <<- y#
+                m <<- NULL#
+        }#
+        get <- function() x#
+        setmean <- function(mean) m <<- mean#
+        getmean <- function() m#
+        list(set = set, get = get,#
+             setmean = setmean,#
+             getmean = getmean)#
+}
+cachemean <- function(x, ...) {#
+        m <- x$getmean()#
+        if(!is.null(m)) {#
+                message("getting cached data")#
+                return(m)#
+        }#
+        data <- x$get()#
+        m <- mean(data, ...)#
+        x$setmean(m)#
+        m#
+}
+a <- makeVector(c(1,2,3,4))
+a
+a$getmean()
+a$get()
+a$getmean()
+a$set()
+cachemean(a)
+a$getmean()
+cachemean(a)
+a$set(c(10,20,30,40))
+a$getmean()
+cachemean(a)
+a$get()
+a$setmean(0)
+a$get()
+cachemean(a)
+a <- makeVector(c(5,25,125,625))
+a$get()
+cachemean(a)
+makeVector(1,2,3)
+makeVector(c(1,2,3))
+b <- makeVector(c(1,2,3))
+b
+b$get()
+a <- makeVector(c(1,2,3,4))
+a$get()
+a$getmean()
+cachemean(a)
+m
+a$getmean()
+m
+cachemean(a)
+print(m)
+crazy <- function(){ }
+crazy <- function(){ x <<- 3.14 print(x)}
+crazy <- function() {#
+	x <<- 3.14#
+	print(x)#
+	{ print(x)#
+		x <- 42#
+		print(x)}#
+	print(x)	#
+}
+x <- 0
+x
+crazy()
+m
+library(datasets)
+data(iris)
+?iris
+str(iris)
+tapply(iris, iris$Species, mean)
+tapply(iris$Sepal.length, iris$Species, mean)
+iris
+mean(iris$Sepal.length, iris$Species=virginica)
+mean(iris$Sepal.length, iris$Species==virginica)
+s <- split(iris, iris$Species)
+s
+tapply(iris$Sepal.length, iris$Species, mean)
+sapply(s, function(x) colMeans(x[,c("virginica")]))
+s$virginica
+mean(s$virginica$Sepal.length)
+colMeans(s$virginica)
+colMeans(s$virginica[,1])
+s$virginica[,1]
+mean(s$virginica[,1])
+rowMeans(iris[,1:4])
+apply(iris[,1:4,1,mean])
+apply(iris[,1:4],1,mean)
+colMeans(iris)
+apply(iris[,1:4],2,mean)
+apply(iris, 1, mean)
+apply(iris, 2, mean)
+library(datasets)
+data(mtcars)
+?mtcars
+tapply(mtcars$mpg, mtcars$cyl, mean)
+mtcars
+tapply(mtcars$cyl, mtcars$mpg, mean)
+mean(mtcars$mpg, mtcars$cyl)
+apply(mtcars, 2, mean)
+sapply(mtcars, cyl, mean)
+split(mtcars, mtcars$cyl)
+sapply(split(mtcars$mpg, mtcars$cyl), mean)
+lapply(mtcars, mean)
+tapply(mtcars, mean)
+tapply(mtcars$cyl, mtcars$mpg, mean)
+with(mtcars, tapply(mpg, cyl, mean))
+str(mtcars)
+tapply(mtcars$hp, mtcars$cyl, mean)
+res <- tapply(mtcars$hp, mtcars$cyl, mean)
+res
+res[1]
+res[3]-res[1]
+debug(ls)
+ls
+str(iris)
+tapply(iris$Sepal.Length, iris$Species, mean)
+tapply(iris$Sepal.length, iris$Species, mean)
+getwd()
+install.packages("RMySQL")
+library(httr)
+oauth_endpoints("github")
+myapp <- oauth_app("github", key = "53a9d2ea0f3f5bd43f42", secret ="4a3310b0184f2947feb68d013cb02d2ba39dfee5")
+github_token <- oauth.o_token(oauth_endpoints("github"), myapp)
+github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
+gtoken <- config(token = github_token)
+req <- GET("https://api.github.com/users/jtleek/repos", gtoken)
+stop_for_status(req)
+content(req)
+req <- with_config(gtoken, GET("https://api.github.com/rate_limit"))
+content(req)
+my_app = oauth_app("github", key="53a9d2ea0f3f5bd43f42", secret ="4a3310b0184f2947feb68d013cb02d2ba39dfee5")
+github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
+req <- with_config(gtoken, GET("https://api.github.com/users/jtleek/repos"))
+content(req)
+stop_for_status(req)
+file <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"#
+download.file(file, "hpc.zip")#
+unzip("hpc.zip")#
+#
+require(data.table)#
+#
+## Determines which lines to import for the exercise#
+first_day <- c("1/2/2007")#
+nb_rows <- 1*60*24*2#
+#
+## Read the data and create a data frame#
+hpc_names <- fread("household_power_consumption.txt", header = TRUE, nrow = 0, sep = ";")#
+hpc <- fread("household_power_consumption.txt", header = FALSE, skip = first_day, nrow = nb_rows, sep =";")#
+names(hpc) <- names(hpc_names)#
+#
+## Transform the character into Date format#
+hpc$DateTime <- paste(hpc$Date, hpc$Time)#
+hpc[[10]] <- strptime([[10]], "%d/%m/%Y %T")
+hpc[[10]] <- strptime(hpc[[10]], "%d/%m/%Y %T")
+plot(hpc$DateTime, hpc$Global_active_power)
+plot(hpc$DateTime, hpc$Global_active_power, "n")
+plot(hpc$DateTime, hpc$Global_active_power, "n", xlab ="", ylab ="Global Active Power (kilowatts)")
+?pch
+?lines
+lines(hpc$DateTime, hpc$Global_active_power)
+plot(hpc$DateTime, hpc$Sub_metering_1, "n", xlab ="", ylab ="Energy sub metering")#
+lines(hpc$DateTime, hpc$Sub_metering_1, col = "black")#
+lines(hpc$DateTime, hpc$Sub_metering_2, col = "red")#
+lines(hpc$DateTime, hpc$Sub_metering_3, col = "blue")
+?text
+?legend
+legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"", pch = c(1,2,3), col = c("red", "blue", "green"))
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"", pch = c(1,2,3), col = c("red", "blue", "green"))
+legend("topright", legend = "legend", col = "blue"
+)
+legend("topright", legend = c("Sub1", "Sub2", "Sub3"), col = "blue")
+legend("topright", legend = c("Sub1", "Sub2", "Sub3"), col = "blue", pch = 2)
+legend("topright", legend = c("Sub1", "Sub2", "Sub3"), col = "blue", pch = c(2,3,4))
+dev.off()
+?lty
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"))
+plot(hpc$DateTime, hpc$Sub_metering_1, "n", xlab ="", ylab ="Energy sub metering")#
+lines(hpc$DateTime, hpc$Sub_metering_1, col = "black")#
+lines(hpc$DateTime, hpc$Sub_metering_2, col = "red")#
+lines(hpc$DateTime, hpc$Sub_metering_3, col = "blue")#
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"))
+?par
+par(mfcol = c(2,2))
+plot(hpc$datetime, hpc$Global_active_power, "n", xlab ="", ylab ="Global Active Power")
+plot(hpc$DateTime, hpc$Global_active_power, "n", xlab ="", ylab ="Global Active Power")
+lines(hpc$datetime, hpc$Global_active_power)
+lines(hpc$DateTime, hpc$Global_active_power)
+plot(hpc$DateTime, hpc$Sub_metering_1, "n", xlab ="", ylab ="Energy sub metering")#
+lines(hpc$DateTime, hpc$Sub_metering_1, col = "black")#
+lines(hpc$DateTime, hpc$Sub_metering_2, col = "red")#
+lines(hpc$DateTime, hpc$Sub_metering_3, col = "blue")#
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"))
+?legend
+str(hpc)
+getwd()
+png("plot4.png", width = 480, height = 480)#
+#
+plot(hpc$datetime, hpc$Global_active_power, "n", xlab ="", ylab ="Global Active Power")#
+lines(hpc$datetime, hpc$Global_active_power)#
+#
+plot(hpc$DateTime, hpc$Sub_metering_1, "n", xlab ="", ylab ="Energy sub metering")#
+lines(hpc$DateTime, hpc$Sub_metering_1, col = "black")#
+lines(hpc$DateTime, hpc$Sub_metering_2, col = "red")#
+lines(hpc$DateTime, hpc$Sub_metering_3, col = "blue")#
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"), bty = "n")#
+#
+plot(hpc$DateTime, hpc$Voltage, "n", xlab ="datetime", ylab = "Voltage")#
+lines(hpc$DateTime, hpc$Voltage)#
+#
+plot(hpc$DateTime, hpc$Global_reactive_power, "n", xlab ="datetime")#
+lines(hpc$DateTime, hpc$Global_reactive_power)#
+#
+dev.off()
+png("plot4.png", width = 480, height = 480)#
+#
+par(mfcol = c(2,2))#
+#
+plot(hpc$datetime, hpc$Global_active_power, "n", xlab ="", ylab ="Global Active Power")#
+lines(hpc$datetime, hpc$Global_active_power)#
+#
+plot(hpc$DateTime, hpc$Sub_metering_1, "n", xlab ="", ylab ="Energy sub metering")#
+lines(hpc$DateTime, hpc$Sub_metering_1, col = "black")#
+lines(hpc$DateTime, hpc$Sub_metering_2, col = "red")#
+lines(hpc$DateTime, hpc$Sub_metering_3, col = "blue")#
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"), bty = "n")#
+#
+plot(hpc$DateTime, hpc$Voltage, "n", xlab ="datetime", ylab = "Voltage")#
+lines(hpc$DateTime, hpc$Voltage)#
+#
+plot(hpc$DateTime, hpc$Global_reactive_power, "n", xlab ="datetime")#
+lines(hpc$DateTime, hpc$Global_reactive_power)#
+#
+dev.off()
+png("plot4.png", width = 480, height = 480)#
+#
+par(mfcol = c(2,2))#
+#
+plot(hpc$DateTime, hpc$Global_active_power, "n", xlab ="", ylab ="Global Active Power")#
+lines(hpc$datetime, hpc$Global_active_power)#
+#
+plot(hpc$DateTime, hpc$Sub_metering_1, "n", xlab ="", ylab ="Energy sub metering")#
+lines(hpc$DateTime, hpc$Sub_metering_1, col = "black")#
+lines(hpc$DateTime, hpc$Sub_metering_2, col = "red")#
+lines(hpc$DateTime, hpc$Sub_metering_3, col = "blue")#
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"), bty = "n")#
+#
+plot(hpc$DateTime, hpc$Voltage, "n", xlab ="datetime", ylab = "Voltage")#
+lines(hpc$DateTime, hpc$Voltage)#
+#
+plot(hpc$DateTime, hpc$Global_reactive_power, "n", xlab ="datetime")#
+lines(hpc$DateTime, hpc$Global_reactive_power)#
+#
+dev.off()
+png("plot4.png", width = 480, height = 480)#
+#
+par(mfcol = c(2,2))#
+#
+plot(hpc$DateTime, hpc$Global_active_power, "n", xlab ="", ylab ="Global Active Power")#
+lines(hpc$DateTime, hpc$Global_active_power)#
+#
+plot(hpc$DateTime, hpc$Sub_metering_1, "n", xlab ="", ylab ="Energy sub metering")#
+lines(hpc$DateTime, hpc$Sub_metering_1, col = "black")#
+lines(hpc$DateTime, hpc$Sub_metering_2, col = "red")#
+lines(hpc$DateTime, hpc$Sub_metering_3, col = "blue")#
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1, col = c("black", "red", "blue"), bty = "n")#
+#
+plot(hpc$DateTime, hpc$Voltage, "n", xlab ="datetime", ylab = "Voltage")#
+lines(hpc$DateTime, hpc$Voltage)#
+#
+plot(hpc$DateTime, hpc$Global_reactive_power, "n", xlab ="datetime")#
+lines(hpc$DateTime, hpc$Global_reactive_power)#
+#
+dev.off()
